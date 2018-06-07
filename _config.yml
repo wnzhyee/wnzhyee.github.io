@@ -11,13 +11,13 @@ permalink:        pretty
 gems: [jekyll-paginate]
 
 # Setup
-title:            fiona
-tagline:          '从这里出初江湖，携手仗剑江湖路'
+title:            alamoy
+tagline:          'Do Not Go Gentle into That Good Night'
 description:      'Hello'
-baseurl:           /blog
+baseurl:           /wnzhyee.github.io
 author:
-  name:           'fiona'
-  url:            https://github.com/fiona23
+  name:           'alamoy'
+  url:            https://github.com/wnzhyee
 
 paginate:        5
 
@@ -28,7 +28,7 @@ version:          1.0.0
 comments :
     provider : duoshuo
     duoshuo :
-      short_name : fiona
+      short_name : alamoy
 
 kramdown:
   auto_ids:       true
