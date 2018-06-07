@@ -1,38 +1,43 @@
 ---
-layout: main
+layout: default
 ---
-<article class="article-page">
-  <div class="page-content">
-    {% if page.img %}
-    <div class="page-cover-image">
-      <figure>
-        <img class="page-image" src={{ "/assets/img/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}">
-        {% if page.fig-caption %}
-          <figcaption>{{page.fig-caption}}</figcaption>
-        {% endif %}
-      </figure>
-    </div> <!-- End Page Cover Image -->
+
+<div class="post-mainbody">
+    <h2><a href="http://fiona23.github.io">首页</a>/<a href="{{ site.baseurl }}">Blog</a></h2>
+  <div class="post-head">
+    <h1 class="post-title">
+      <a class="post-title-blog" href="{{ post.url }}">
+        {{ page.title }}
+      </a>
+    </h1>
+    <span class="info">发表于<time>&nbsp{{ page.date | date: "%Y" }}-{{ page.date | date: "%m" }}-{{ page.date | date: "%d" }}</time></span>
+      <span class="info"><a href="{{ site.baseurl }}/tag/index.html#{{ page.tags | first }}"><i class="fa fa-tags"></i>{{ page.tags | first }}</a></span> 
+      <span class="info">&nbsp<a href="{{ site.baseurl }}/tag/index.html#{{ page.tags[1] }}">{{ page.tags[1] }}</a></span>
+      <span class="info">&nbsp<a href="{{ site.naseurl }}/tag/index.html#{{ page.tags[2] }}">{{ page.tags[2] }}</a></span>
+  </div><!--post head-->
+  <div class="post-content">
+    {{ content }}    
+  </div>
+
+  <div id="divider">
+    {% if page.next %}
+      <a class="" href="{{ site.baseurl }}/{{ page.next.url}}" title="上一篇"><i class="fa fa-chevron-left"></i></a>
     {% else %}
+      <a class="" id="lastest"><i class="fa fa-circle"></i></a>
     {% endif %}
-    <div class="wrap-content">
-      <header class="header-page">
-        <h1 class="page-title">{{page.title}}</h1>
-        <div class="page-date"><span>{{page.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-      </header>
-      {{content | markdownify}}
-      <div class="page-footer">
-        <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
-        </div>
-        <div class="page-tag">
-          {% for tag in page.tags %}
-            <a href="{{site.baseurl}}/tags#{{tag}}" class="tag">&#35; {{ tag }}</a>
-          {% endfor %}
-        </div>
-      </div>
-      {% include disqus.html %}
-    </div> <!-- End Wrap Content -->
-  </div> <!-- End Page Content -->
-</article> <!-- End Article Page -->
+    {% if page.previous %}
+      <a class="" href="{{ site.baseurl }}/{{ page.previous.url}}" title="下一篇"><i class="fa fa-chevron-right"></i></a>
+    {% else %}
+      <a class="" id="lastone"><i class="fa fa-circle"></i></a>
+    {% endif %}
+  </div>
+
+
+<!-- 多说评论框 start -->
+{% include comment.html %}
+<!-- 多说公共JS代码 end -->
+
+
+</div><!--post-->
+
+

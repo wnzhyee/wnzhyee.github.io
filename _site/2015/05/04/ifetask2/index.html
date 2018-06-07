@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-66365958-1', 'auto');
+       ga('send', 'pageview');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>task02学习笔记</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/blog/public/img/icon.ico" />
+    <link rel="stylesheet" href="/blog/public/css/default.css" type="text/css">
+    <link rel="stylesheet" href="/blog/public/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/blog/public/css/font-awesome.min.css" type="text/css">
+</head>
+<body>
+<header>
+    <a href="http://fiona23.github.io"><img class="icon" src="/blog/public/img/icon.png"></a>
+    <button id="hamburger">
+        <span>fiona23</span>
+    </button>
+    <nav id="nav" class="nav">
+    <ul>
+         <li><a href="http://fiona23.github.io/">首页</a></li>
+         <!-- <li><a href="/blog">画儿</a></li>-->
+         <li><a href="/blog">博客</a></li>
+         <li><a href="http://fiona23.github.io/about">关于</a></li>
+    </ul>
+    </nav>
+</header>
+
+    <div class="post-mainbody">
+    <h2><a href="http://fiona23.github.io">首页</a>/<a href="/blog">Blog</a></h2>
+  <div class="post-head">
+    <h1 class="post-title">
+      <a class="post-title-blog" href="">
+        task02学习笔记
+      </a>
+    </h1>
+    <span class="info">发表于<time>&nbsp2015-05-04</time></span>
+      <span class="info"><a href="/blog/tag/index.html#ife"><i class="fa fa-tags"></i>ife</a></span> 
+      <span class="info">&nbsp<a href="/blog/tag/index.html#"></a></span>
+      <span class="info">&nbsp<a href="/tag/index.html#"></a></span>
+  </div><!--post head-->
+  <div class="post-content">
+    <p>总结一些task02学习到的知识以及踩过的坑。</p>
+
+<p>##积累
+###深度克隆<br />
+当需要克隆的对象是对象和数组的时候，需要进行深度克隆，在改变克隆后的对象时才不会影响原对象。 <br />
+方法是通过递归克隆所有属性和方法，或数组中的元素。</p>
+
+<p>###正则表达式<br />
+^和$的用处：之前一直不太明白这两个的用处，觉得可有可无，不清楚开始和结束标识的意思。现在知道就是在需要检验的字符串中开始结尾不能再比^和$包含的正则表达式多出内容，否则不匹配。<br />
+如果正则表达式中需要用到变量，则必须使用 <code class="highlighter-rouge">new RegExp()</code><br />
+<code class="highlighter-rouge">$1</code> 的用法：在做属性选择器的时候，需要匹配 <code class="highlighter-rouge">[type=XXX]</code>，想法就是用正则来找到<code class="highlighter-rouge">[ ] </code>，然后就涉及到一个问题，要去掉中括号保留中括号里面的字符串，这时候就可以用到<code class="highlighter-rouge">$1</code>， 具体做法是 <code class="highlighter-rouge">selector.replace(/\[([^\[\]]*)\]/, '$1')</code>。</p>
+
+<p>###DOM0事件和DOM2事件
+DOM0事件是handler例如：<code class="highlighter-rouge">foo.onclick = fn</code>
+DOM2是事件监听例如：<code class="highlighter-rouge">addEventListener('click', fn, false)</code> IE下是 <code class="highlighter-rouge">attachEvent('onclick', fn)</code>
+区别在于， DOM2 监听事件可以让多个函数响应一个事件而DOM0 事件处理器不行<br />
+DOM0清除事件直接赋值null，DOM2清除所有事件则需要复制原DOM</p>
+
+<p>###AJAX
+如果<code class="highlighter-rouge">type = get</code> 则 <code class="highlighter-rouge">send</code>的数据直接在url上<br />
+如果<code class="highlighter-rouge">type = post</code> 则将需<code class="highlighter-rouge">send(data)</code>,data可以是用&amp;连接的字符串，或者键值对象。并且需要 <code class="highlighter-rouge">xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")</code></p>
+    
+  </div>
+
+  <div id="divider">
+    
+      <a class="" href="/blog//2015/06/27/yeguo/" title="上一篇"><i class="fa fa-chevron-left"></i></a>
+    
+    
+      <a class="" href="/blog//2015/04/02/setTimeout/" title="下一篇"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+
+
+<!-- 多说评论框 start -->
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="/2015/05/04/ifetask2" data-title="task02学习笔记" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"milamiya"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+<!-- 多说公共JS代码 end -->
+
+
+</div><!--post-->
+
+
+   
+
+<div id="footer">
+    <p>  Copyright © 2016 - <a href="/">fiona23</a> - Powered by 
+        <a href="http://jekyllrb.com/">Jekyll</a>.
+        <a href="http://github.com/">Github</a>
+    </p>
+</div>
+
+    <script type="text/javascript" src="/blog/public/js/jquery-2.1.3.min.js" ></script>
+    <script type="text/javascript" src="/blog/public/js/blog.js" ></script>
+</body>
+</html>>
+
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-66365958-1', 'auto');
+       ga('send', 'pageview');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>使用 react router 的时候使用 flux 的问题</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/blog/public/img/icon.ico" />
+    <link rel="stylesheet" href="/blog/public/css/default.css" type="text/css">
+    <link rel="stylesheet" href="/blog/public/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/blog/public/css/font-awesome.min.css" type="text/css">
+</head>
+<body>
+<header>
+    <a href="http://fiona23.github.io"><img class="icon" src="/blog/public/img/icon.png"></a>
+    <button id="hamburger">
+        <span>fiona23</span>
+    </button>
+    <nav id="nav" class="nav">
+    <ul>
+         <li><a href="http://fiona23.github.io/">首页</a></li>
+         <!-- <li><a href="/blog">画儿</a></li>-->
+         <li><a href="/blog">博客</a></li>
+         <li><a href="http://fiona23.github.io/about">关于</a></li>
+    </ul>
+    </nav>
+</header>
+
+    <div class="post-mainbody">
+    <h2><a href="http://fiona23.github.io">首页</a>/<a href="/blog">Blog</a></h2>
+  <div class="post-head">
+    <h1 class="post-title">
+      <a class="post-title-blog" href="">
+        使用 react router 的时候使用 flux 的问题
+      </a>
+    </h1>
+    <span class="info">发表于<time>&nbsp2016-08-23</time></span>
+      <span class="info"><a href="/blog/tag/index.html#react"><i class="fa fa-tags"></i>react</a></span> 
+      <span class="info">&nbsp<a href="/blog/tag/index.html#"></a></span>
+      <span class="info">&nbsp<a href="/tag/index.html#"></a></span>
+  </div><!--post head-->
+  <div class="post-content">
+    <p>最近做的项目使用的是 react + react-router + flux 的开发模式，在 flux 中需要监听 Store 的变化，一般是在 control view 的 <code class="highlighter-rouge">componentDidMount</code> 中去监听，当 Store 变化后，去执行对应的函数，例如 setState()。</p>
+
+<p>前两天遇到的一个错是，当我从 index 跳到 about 页面，又从 about 页面跳回 index 页面后，当 store 变化时，控制台报错说我在一个 <code class="highlighter-rouge">umount</code> 的组件中执行了 <code class="highlighter-rouge">setState</code>，当时有点奇怪我明明所有的 <code class="highlighter-rouge">setState</code> 都是在 <code class="highlighter-rouge">componentDidMount</code> 里执行的啊。后来想到可能是当我从 index 页面跳到 about 页面以后，index 这个组件已经<code class="highlighter-rouge">unmount</code>了，但是却一直还在监听 <code class="highlighter-rouge">Store</code> ，当 <code class="highlighter-rouge">Store</code> 变化的时候，又去执行了 <code class="highlighter-rouge">setState</code> ，导致出现报错。<br />
+后来在<code class="highlighter-rouge">componentWillUnmount</code>里执行里<code class="highlighter-rouge">removeListener</code>以后，报错就消失了。需要注意的是<code class="highlighter-rouge">removeListener</code>这个函数需要把最开始的<code class="highlighter-rouge">addListener</code>的<code class="highlighter-rouge">callback</code>作为参数传进去。这篇文章介绍得很清楚：http://www.alloyteam.com/2015/08/eventemitter/</p>
+
+    
+  </div>
+
+  <div id="divider">
+    
+      <a class="" href="/blog//2016/08/25/set-margin/" title="上一篇"><i class="fa fa-chevron-left"></i></a>
+    
+    
+      <a class="" href="/blog//2016/08/23/git-command/" title="下一篇"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+
+
+<!-- 多说评论框 start -->
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="/2016/08/23/react-flux-event" data-title="使用 react router 的时候使用 flux 的问题" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"milamiya"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+<!-- 多说公共JS代码 end -->
+
+
+</div><!--post-->
+
+
+   
+
+<div id="footer">
+    <p>  Copyright © 2016 - <a href="/">fiona23</a> - Powered by 
+        <a href="http://jekyllrb.com/">Jekyll</a>.
+        <a href="http://github.com/">Github</a>
+    </p>
+</div>
+
+    <script type="text/javascript" src="/blog/public/js/jquery-2.1.3.min.js" ></script>
+    <script type="text/javascript" src="/blog/public/js/blog.js" ></script>
+</body>
+</html>>
+
+
