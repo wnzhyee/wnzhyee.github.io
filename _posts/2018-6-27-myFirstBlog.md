@@ -6,6 +6,8 @@ category: Tech
 tag: []
 ---
 
+今天2018年6月7号，一个特殊的日子哈哈。正好我也参考教程凑活搭起来了一个小博客，虽然还有许多问题，但还是把我的心酸路程做个记录:)
+
 1.github的使用：最开始的repo(wnzhyee.github.io)是直接从github上clone下来的，所以直接用git add/commit/push没什么问题。但之后过了一个晚上，再直接git push的时候会报错，需要用git remote远程连接上github上的repo(详情参考https://blog.csdn.net/dengjianqiang2011/article/details/9260435)
 
 2.关于移植别的主题的步骤：
