@@ -1,7 +1,7 @@
 ---
 layout: post
 author: alamoy
-title: Paper Reading: Detecting and Recognizing Human-Object Interactions
+title: Paper Reading:: Detecting and Recognizing Human-Object Interactions
 category: Tech
 tag: [paper reading]
 ---
