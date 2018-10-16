@@ -1,12 +1,10 @@
 ---
 layout: post
 author: alamoy
-title: Paper Reading:: Detecting and Recognizing Human-Object Interactions
+title: Paper Reading Detecting and Recognizing Human-Object Interactions
 category: Tech
-tag: [paper reading]
+tag: []
 ---
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
 Kaiming He的一篇CVPR2018，文章地址：[https://arxiv.org/abs/1704.07333](https://arxiv.org/abs/1704.07333)
 
